@@ -110,6 +110,8 @@ After startup:
 
 ### Backend
 
+> **Python version:** `python3` in these commands must resolve to 3.11 or newer. If your system default is older, substitute the full path (e.g. `python3.11`, `python3.12`) or use `PYTHON=/path/to/python3.11 ./setup.sh` instead. Run `python3 --version` to check.
+
 ```bash
 python3 -m venv venv
 source venv/bin/activate

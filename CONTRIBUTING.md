@@ -48,6 +48,8 @@ This starts:
 
 Backend:
 
+> **Python version:** `python3` below must resolve to 3.11 or newer. Run `python3 --version` to check. If your system default is older, substitute the full path (e.g. `python3.11`) or use `PYTHON=/path/to/python3.11 ./setup.sh` instead of the manual steps.
+
 ```bash
 python3 -m venv venv
 source venv/bin/activate
