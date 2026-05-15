@@ -17,13 +17,13 @@ if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Usage: python fix_checksum.py <plugin_dir>")
         sys.exit(1)
-    
+
     plugin_dir = Path(sys.argv[1])
     metadata_file = plugin_dir / "metadata.json"
     parser_file = plugin_dir / "parser.py"
-    
+
     if not metadata_file.exists():
         print(f"Error: {metadata_file} not found")
         sys.exit(1)
-        
+
     print(compute_plugin_digest(metadata_file, parser_file))
