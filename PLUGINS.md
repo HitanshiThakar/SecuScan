@@ -224,6 +224,35 @@ After refreshing, run the backend tests to confirm the plugin loads correctly:
 cd backend && python -m pytest
 ```
 
+### Example 1 — Refresh a single plugin after editing its files
+
+Run this after editing `plugins/nmap/metadata.json` or `plugins/nmap/parser.py`:
+
+```bash
+python scripts/refresh_plugin_checksum.py --plugin nmap
+```
+
+When the checksum is already up to date, the script reports the plugin as
+`[OK]` and exits cleanly with no files modified.
+
+When the checksum is outdated, the script prints the old and new digest values,
+writes the updated checksum back into `metadata.json`, and confirms the update.
+
+### Example 2 — Preview all plugins without writing anything (dry run)
+
+Run this to check which plugins are out of date before committing:
+
+```bash
+python scripts/refresh_plugin_checksum.py --all --dry-run
+```
+
+In dry-run mode no files are modified. Each plugin reports either `[OK]` if
+its checksum is current, or `[UPDATE]` showing what would change. A clean
+state means every plugin reports `[OK]` and the final line shows zero failures.
+
+If any `[UPDATE]` lines appear, run the same command without `--dry-run` to
+apply the changes before committing.
+
 ## Plugin Validation
 
 Validate a single plugin without loading all plugins:
